@@ -11,3 +11,15 @@ export const currencyDetails = {
   JPY: 'Japanese Yen',
   KRW: 'South Korean Won'
 }
+
+export const currencyList = [
+  "CAD",
+  "IDR",
+  "GBP",
+  "CHF",
+  "SGD",
+  "INR",
+  "MYR",
+  "JPY",
+  "KRW"
+];
