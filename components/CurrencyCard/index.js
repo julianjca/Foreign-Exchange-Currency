@@ -12,16 +12,10 @@ class CurrencyCard extends React.Component {
 
   componentDidMount = async () => {
     const { currency, rates } = this.props;
-    try {
-      this.setState({
-        currencyRate: rates[currency],
-        currencyDetails: currencyDetails[currency]
-      })
-    } catch (e) {
-      this.setState({
-        currencyRate: ''
-      })
-    }
+    this.setState({
+      currencyRate: rates[currency],
+      currencyDetails: currencyDetails[currency]
+    })
   }
 
   render () {
