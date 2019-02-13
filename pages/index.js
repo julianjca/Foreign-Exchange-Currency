@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
+
 import CurrencyCard from '../components/CurrencyCard';
-import { currencyList } from '../constants';
+import { currencyList, API_URL } from '../constants';
 import { Container, Input, Error } from '../components/StyledComponents';
 
 class Home extends React.Component {
@@ -10,7 +12,23 @@ class Home extends React.Component {
     currentValue: 10,
     openDropDown: false,
     inputCurrency: '',
-    errorMessage: ''
+    errorMessage: '',
+    rates: {}
+  }
+
+  componentDidMount = async () => {
+    try {
+      let { data } = await axios(`${API_URL}`);
+      let { rates } = data;
+      this.setState({
+        rates
+      })
+    } catch (e) {
+      this.setState({
+        rates: {},
+        errorMessage: 'failed getting data from api'
+      })
+    }
   }
 
   handleChange = event => {
@@ -85,6 +103,7 @@ class Home extends React.Component {
                 key={item}
                 currentValue={this.state.currentValue}
                 removeCurrency={this.removeCurrency}
+                rates={this.state.rates}
               />
             )
           })

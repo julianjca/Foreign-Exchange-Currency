@@ -11,10 +11,8 @@ class CurrencyCard extends React.Component {
   }
 
   componentDidMount = async () => {
-    const { currency } = this.props;
+    const { currency, rates } = this.props;
     try {
-      let { data } = await axios(`${API_URL}`);
-      let { rates } = data;
       this.setState({
         currencyRate: rates[currency],
         currencyDetails: currencyDetails[currency]
