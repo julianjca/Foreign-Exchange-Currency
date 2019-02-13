@@ -13,5 +13,6 @@ padding: 1% 0;
 text-align: center;
   h4 {
     margin : 5px auto;
+    font-size: 12px;
   }
 `;

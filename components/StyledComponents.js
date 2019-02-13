@@ -17,3 +17,7 @@ margin: 10px auto;
 border-radius: 10px;
 border: 1px solid #1a1a1a;
 `;
+
+export const Error = styled.h6`
+color: red;
+`

@@ -1,7 +1,7 @@
 import React from 'react';
 import CurrencyCard from '../components/CurrencyCard';
 import { currencyList } from '../constants';
-import { Container, Input } from '../components/StyledComponents';
+import { Container, Input, Error } from '../components/StyledComponents';
 
 class Home extends React.Component {
   state = {
@@ -103,7 +103,7 @@ class Home extends React.Component {
             placeholder="Input Currency Name"
           />
         }
-        <h6>{this.state.errorMessage}</h6>
+        <Error>{this.state.errorMessage}</Error>
       </Container>
     )
   }
