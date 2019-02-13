@@ -26,12 +26,13 @@ class CurrencyCard extends React.Component {
   }
 
   render () {
-    const { currency } = this.props;
+    const { currency, currentValue } = this.props;
 
     return (
       <div>
-        <h2>1 USD = { currency } { this.state.currencyRate }</h2>
-        <h4>{ this.state.currencyDetails }</h4>
+        <h4>{ currentValue * this.state.currencyRate }</h4>
+        <h5>1 USD = { currency } { this.state.currencyRate }</h5>
+        <h5>{ this.state.currencyDetails }</h5>
       </div>
     )
   }
