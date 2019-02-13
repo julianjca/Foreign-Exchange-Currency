@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 
 import CurrencyCard from '../components/CurrencyCard';
-import { currencyList, API_URL } from '../constants';
+import { currencies, API_URL } from '../constants';
 import { Container, Input, Error, Button } from '../components/StyledComponents';
 
 class Home extends React.Component {
   state = {
-    currencies: currencyList,
+    currencies,
     selectedCurrencies: [],
     currentValue: 10,
     openDropDown: false,
@@ -45,7 +45,7 @@ class Home extends React.Component {
 
   handleKeyPress = event => {
     if (event.key === 'Enter') {
-      const exists = currencyList.find(item => {
+      const exists = currencies.find(item => {
         return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
       });
       if(exists) {

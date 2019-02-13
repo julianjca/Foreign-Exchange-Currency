@@ -12,7 +12,7 @@ export const currencyDetails = {
   KRW: 'South Korean Won'
 }
 
-export const currencyList = [
+export const currencies = [
   "CAD",
   "IDR",
   "GBP",
