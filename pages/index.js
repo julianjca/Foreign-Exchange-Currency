@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import CurrencyCard from '../components/CurrencyCard';
 import { currencyList, API_URL } from '../constants';
-import { Container, Input, Error } from '../components/StyledComponents';
+import { Container, Input, Error, Button } from '../components/StyledComponents';
 
 class Home extends React.Component {
   state = {
@@ -111,11 +111,11 @@ class Home extends React.Component {
         {
           !this.state.openDropDown
           ?
-          <button
+          <Button
             onClick={this.handleClick}
           >
-            Add Currency
-          </button>
+            +
+          </Button>
           :
           <Input
             type="text"

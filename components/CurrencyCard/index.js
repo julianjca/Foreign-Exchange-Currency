@@ -2,6 +2,7 @@ import React from 'react';
 
 import { currencyDetails } from '../../constants';
 import { Card } from './style';
+import { Button } from '../StyledComponents';
 
 class CurrencyCard extends React.Component {
   state = {
@@ -31,7 +32,7 @@ class CurrencyCard extends React.Component {
         <h4>{ currentValue * this.state.currencyRate }</h4>
         <h4>1 USD = { currency } { this.state.currencyRate }</h4>
         <h4>{ currency } - { this.state.currencyDetails }</h4>
-        <button onClick={() => this.props.removeCurrency(currency)}>Remove Currency</button>
+        <Button onClick={() => this.props.removeCurrency(currency)}>-</Button>
       </Card>
     )
   }

@@ -21,4 +21,10 @@ border: 1px solid #1a1a1a;
 
 export const Error = styled.h6`
 color: red;
-`
+`;
+
+export const Button = styled.button`
+width: 25px;
+height: 25px;
+border-radius: 5px;
+`;
