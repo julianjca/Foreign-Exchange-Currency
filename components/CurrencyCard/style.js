@@ -6,7 +6,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 border: 1px solid black;
-width: 30%;
+width: 25%;
 margin: 20px auto;
 padding: 1% 0;
 text-align: center;
