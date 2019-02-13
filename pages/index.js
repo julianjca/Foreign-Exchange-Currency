@@ -18,7 +18,7 @@ class Home extends React.Component {
 
   componentDidMount = async () => {
     try {
-      let { data } = await axios(`${API_URL}`);
+      let { data } = await axios(API_URL);
       let { rates } = data;
       this.setState({
         rates
