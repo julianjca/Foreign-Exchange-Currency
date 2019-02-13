@@ -1,6 +1,6 @@
 import React from 'react';
 import CurrencyCard from '../components/CurrencyCard';
-import { curencyList, currencyList } from '../constants';
+import { currencyList } from '../constants';
 
 class Home extends React.Component {
   state = {
@@ -46,21 +46,34 @@ class Home extends React.Component {
         if(notChosen) {
           this.setState({
             selectedCurrencies: this.state.selectedCurrencies.concat(exists),
-            currencies: this.state.currencies.filter(e => e !== exists)
+            currencies: this.state.currencies.filter(e => e !== exists),
+            openDropDown: false,
+            inputCurrency: ''
           })
         }
         else {
           this.setState({
-            errorMessage: 'currency already chosen'
+            errorMessage: 'currency already chosen',
+            openDropDown: false,
+            inputCurrency: ''
           })
         }
       }
       else {
         this.setState({
-          errorMessage: 'currency not available'
+          errorMessage: 'currency not available',
+          openDropDown: false,
+          inputCurrency: ''
         })
       }
     }
+  }
+
+  removeCurrency = (currency) => {
+    this.setState({
+      currencies: this.state.currencies.concat(currency),
+      selectedCurrencies: this.state.selectedCurrencies.filter(e => e !== currency),
+    })
   }
 
   render() {
@@ -77,14 +90,19 @@ class Home extends React.Component {
         {
           this.state.selectedCurrencies.map(item=> {
             return (
-              <CurrencyCard currency={item} key={item} currentValue={this.state.currentValue} />
+              <CurrencyCard
+                currency={item}
+                key={item}
+                currentValue={this.state.currentValue}
+                removeCurrency={this.removeCurrency}
+              />
             )
           })
         }
         {
-          this.state.openDropDown
+          !this.state.openDropDown
           ?
-          <button onClick={this.handleClick} />
+          <button onClick={this.handleClick}>Add Currency</button>
           :
           <input
             type="text"

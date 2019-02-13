@@ -33,6 +33,7 @@ class CurrencyCard extends React.Component {
         <h4>{ currentValue * this.state.currencyRate }</h4>
         <h5>1 USD = { currency } { this.state.currencyRate }</h5>
         <h5>{ this.state.currencyDetails }</h5>
+        <button onClick={() => this.props.removeCurrency(currency)}>Remove Currency</button>
       </div>
     )
   }
