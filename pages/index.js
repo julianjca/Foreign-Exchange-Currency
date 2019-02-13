@@ -111,7 +111,11 @@ class Home extends React.Component {
         {
           !this.state.openDropDown
           ?
-          <button onClick={this.handleClick}>Add Currency</button>
+          <button
+            onClick={this.handleClick}
+          >
+            Add Currency
+          </button>
           :
           <Input
             type="text"
