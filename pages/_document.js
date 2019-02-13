@@ -20,12 +20,14 @@ outline: 0;
 font-size: 16px;
 height : 100%;
 font-family : 'Lato';
+text-align: center;
 }
-h1, h2, h3,h4 {
+h1, h2, h3,h4, h5, h6 {
 padding : 0;
 margin : 0;
 font-family : 'Lato';
 font-weight : 500;
+text-align: center;
 }
 `;
 

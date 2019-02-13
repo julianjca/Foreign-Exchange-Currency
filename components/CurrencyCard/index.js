@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { API_URL, currencyDetails } from '../../constants';
+import { Card } from './style';
 
 class CurrencyCard extends React.Component {
   state = {
@@ -29,12 +30,12 @@ class CurrencyCard extends React.Component {
     const { currency, currentValue } = this.props;
 
     return (
-      <div>
+      <Card>
         <h4>{ currentValue * this.state.currencyRate }</h4>
-        <h5>1 USD = { currency } { this.state.currencyRate }</h5>
-        <h5>{ this.state.currencyDetails }</h5>
+        <h4>1 USD = { currency } { this.state.currencyRate }</h4>
+        <h4>{ currency } - { this.state.currencyDetails }</h4>
         <button onClick={() => this.props.removeCurrency(currency)}>Remove Currency</button>
-      </div>
+      </Card>
     )
   }
 }

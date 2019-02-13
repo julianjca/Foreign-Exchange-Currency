@@ -1,20 +1,11 @@
 import React from 'react';
 import CurrencyCard from '../components/CurrencyCard';
 import { currencyList } from '../constants';
+import { Container, Input } from '../components/StyledComponents';
 
 class Home extends React.Component {
   state = {
-    currencies: [
-      "CAD",
-      "IDR",
-      "GBP",
-      "CHF",
-      "SGD",
-      "INR",
-      "MYR",
-      "JPY",
-      "KRW"
-    ],
+    currencies: currencyList,
     selectedCurrencies: [],
     currentValue: 10,
     openDropDown: false,
@@ -78,15 +69,14 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h3>USD - United States Dollar</h3>
-        <input
+        <Input
           type="text"
           value={this.state.currentValue}
           onChange={ this.handleChange }
           name="currentValue"
         />
-        <h6>{this.state.currentValue}</h6>
         {
           this.state.selectedCurrencies.map(item=> {
             return (
@@ -104,16 +94,17 @@ class Home extends React.Component {
           ?
           <button onClick={this.handleClick}>Add Currency</button>
           :
-          <input
+          <Input
             type="text"
             value={this.state.inputCurrency}
             onChange={ this.handleChange }
             onKeyPress={this.handleKeyPress}
             name="inputCurrency"
+            placeholder="Input Currency Name"
           />
         }
         <h6>{this.state.errorMessage}</h6>
-      </div>
+      </Container>
     )
   }
 }
