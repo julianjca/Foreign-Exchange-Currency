@@ -1,7 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 
-import { API_URL, currencyDetails } from '../../constants';
+import { currencyDetails } from '../../constants';
 import { Card } from './style';
 
 class CurrencyCard extends React.Component {
