@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import CurrencyCard from '../components/CurrencyCard';
 
 class Home extends React.Component {
   state = {
-    currencies = [
+    currencies: [
       "CAD",
       "IDR",
       "GBP",
@@ -16,7 +17,15 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div>Home Page</div>
+      <div>
+        {
+          this.state.currencies.map(item=> {
+            return (
+              <CurrencyCard currency={item} key={item} />
+            )
+          })
+        }
+      </div>
     )
   }
 }
