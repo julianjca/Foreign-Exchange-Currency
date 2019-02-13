@@ -46,11 +46,11 @@ class Home extends React.Component {
   handleKeyPress = event => {
     if (event.key === 'Enter') {
       const exists = currencyList.find(item => {
-        return item === this.state.inputCurrency;
+        return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
       });
       if(exists) {
         const notChosen = this.state.currencies.find(item => {
-          return item === this.state.inputCurrency;
+          return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
         });
         if(notChosen) {
           this.setState({
