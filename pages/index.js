@@ -43,38 +43,42 @@ class Home extends React.Component {
     })
   }
 
-  handleKeyPress = event => {
-    if (event.key === 'Enter') {
-      const exists = currencies.find(item => {
+  submitCurrency = () => {
+    const exists = currencies.find(item => {
+      return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
+    });
+    if(exists) {
+      const notChosen = this.state.currencies.find(item => {
         return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
       });
-      if(exists) {
-        const notChosen = this.state.currencies.find(item => {
-          return item.toUpperCase() === this.state.inputCurrency.toUpperCase();
-        });
-        if(notChosen) {
-          this.setState({
-            selectedCurrencies: this.state.selectedCurrencies.concat(exists),
-            currencies: this.state.currencies.filter(e => e !== exists),
-            openDropDown: false,
-            inputCurrency: ''
-          })
-        }
-        else {
-          this.setState({
-            errorMessage: 'currency already chosen',
-            openDropDown: false,
-            inputCurrency: ''
-          })
-        }
-      }
-      else {
+      if(notChosen) {
         this.setState({
-          errorMessage: 'currency not available',
+          selectedCurrencies: this.state.selectedCurrencies.concat(exists),
+          currencies: this.state.currencies.filter(e => e !== exists),
           openDropDown: false,
           inputCurrency: ''
         })
       }
+      else {
+        this.setState({
+          errorMessage: 'currency already chosen',
+          openDropDown: false,
+          inputCurrency: ''
+        })
+      }
+    }
+    else {
+      this.setState({
+        errorMessage: 'currency not available',
+        openDropDown: false,
+        inputCurrency: ''
+      })
+    }
+  }
+
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.submitCurrency();
     }
   }
 
@@ -117,14 +121,21 @@ class Home extends React.Component {
             +
           </Button>
           :
-          <Input
-            type="text"
-            value={this.state.inputCurrency}
-            onChange={ this.handleChange }
-            onKeyPress={this.handleKeyPress}
-            name="inputCurrency"
-            placeholder="Input Currency Name"
-          />
+          <div>
+            <Input
+              type="text"
+              value={this.state.inputCurrency}
+              onChange={ this.handleChange }
+              onKeyPress={this.handleKeyPress}
+              name="inputCurrency"
+              placeholder="Input Currency Name"
+            />
+            <Button
+              onClick={this.submitCurrency}
+              big
+            >Submit</Button>
+          </div>
+
         }
         <Error>{this.state.errorMessage}</Error>
       </Container>

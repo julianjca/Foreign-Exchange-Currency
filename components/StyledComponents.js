@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
 display: flex;
@@ -27,4 +27,7 @@ export const Button = styled.button`
 width: 25px;
 height: 25px;
 border-radius: 5px;
+${props=> props.big && css`
+  width: 50px;
+`}
 `;
