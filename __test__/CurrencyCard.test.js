@@ -13,7 +13,7 @@ let mockRates = {
 
 const currentValue = 10;
 
-describe('when the mouse moves', () => {
+describe('CurrencyCard Component Test', () => {
   const wrapper = shallow(<CurrencyCard
     currency="CAD"
     currentValue={currentValue}
