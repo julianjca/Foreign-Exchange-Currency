@@ -28,6 +28,7 @@ width: 25px;
 height: 25px;
 border-radius: 5px;
 ${props=> props.big && css`
-  width: 50px;
+  width: 40px;
+  margin-left: 10px;
 `}
 `;
