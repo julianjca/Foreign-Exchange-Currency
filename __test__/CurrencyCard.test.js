@@ -19,7 +19,6 @@ describe('when the mouse moves', () => {
     currentValue={currentValue}
     rates={mockRates}
   />);
-  console.log(wrapper.state().currencyRate,'state')
 
   it('have currency details of Canadian Dollar', () => {
     expect(wrapper.state('currencyDetails')).toEqual(currencyDetails.CAD);
