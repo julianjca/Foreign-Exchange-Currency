@@ -7,7 +7,7 @@ import { currencies } from '../constants';
 
 configure({ adapter: new Adapter() });
 
-describe('CurrencyCard Component Test', () => {
+describe('MainComponent Component Test', () => {
   const wrapper = shallow(<MainComponent />);
 
   it('have currencies state with currencies data', () => {
