@@ -28,7 +28,7 @@ width: 25px;
 height: 25px;
 border-radius: 5px;
 ${props=> props.big && css`
-  width: 40px;
+  width: 50px;
   margin-left: 10px;
 `}
 `;
